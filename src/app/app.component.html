@@ -1,6 +1,31 @@
 <div class="container">
+
   <h1>{{title}}</h1>
-  <p>{{title}} App build using Angular {{version}}</p>
-  <app-course></app-course>
+  <p>{{title}} App build using Angular {{version}} by {{author.name}} from {{author.company}} </p>
+  <p>Next {{title}} version will be {{version+1}}.</p>
+
+
+  <p>{{ arr.sort(numSrt) }}</p>
+
+  <p>{{ car.name }} has {{car.power}} bhp power and {{car.torque}} NM torque.</p>
+  <p>{{reverseString('Lorem')}}</p>
+  <p>{{reverseWords('Lorem Ipsum')}}</p>
+
+  <!-- <img [src]="jack.image" [alt]="jack.alt" [width]="jack.width" [height]="jack.height"> -->
+
+  <button class="btn" [disabled]="disabled">Click</button>
+  <p [class]="p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias provident iusto nisi voluptatum nam necessitatibus, adipisci autem eveniet eos. Nesciunt minima nemo tempora velit quas magnam quibusdam repellendus impedit nostrum!</p>
+  <p [style]="'color:red'">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur nam ut itaque quibusdam. Perferendis illum rem odit aliquam! Quis cum distinctio quia fugit architecto officiis ducimus doloremque dolorum beatae velit.</p>
+  <p [style]="p1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur nam ut itaque quibusdam. Perferendis illum rem odit aliquam! Quis cum distinctio quia fugit architecto officiis ducimus doloremque dolorum beatae velit.</p>
+
+  <h2 (click)="upperCase()">{{h2}}</h2>
+
+  <button class="btn" (click)="inc()"> + </button> 
+  <button class="btn" (click)="dec()"> - </button> 
+  <output> {{ counter }} </output>
+  
+  <!-- <app-course></app-course>
   <app-trainer></app-trainer>
+  <app-admin></app-admin> -->
+
 </div>
