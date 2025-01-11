@@ -1,31 +1,23 @@
 <div class="container">
 
   <h1>{{title}}</h1>
-  <p>{{title}} App build using Angular {{version}} by {{author.name}} from {{author.company}} </p>
-  <p>Next {{title}} version will be {{version+1}}.</p>
+
+  <!-- <label>Name: <input type="text" (input)="name=$any($event.target).value" ></label> 
+  <label>Email: <input type="email" (input)="updateEmail($event)"></label> 
+  <label> <input type="checkbox" (change)="terms=$any($event.target).checked"> : Terms</label> 
+
+  <p>Name : <span>{{name}}</span> </p>
+  <p>Terms : <span>{{terms}}</span> </p>
+  <p>Email :  <span>{{email}}</span></p> -->
 
 
-  <p>{{ arr.sort(numSrt) }}</p>
+  <label>Name: <input type="text" [(ngModel)]="user.name" required></label>
+  <label>Email: <input type="email" [(ngModel)]="user.email" required></label>
+  <label>Age: <input type="number" [(ngModel)]="user.age" required min="18" max="25"></label>
 
-  <p>{{ car.name }} has {{car.power}} bhp power and {{car.torque}} NM torque.</p>
-  <p>{{reverseString('Lorem')}}</p>
-  <p>{{reverseWords('Lorem Ipsum')}}</p>
+  <p>Name : <span>{{user.name}}</span> </p>
+  <p>Email :  <span>{{user.email}}</span></p>
+  <p>Age :  <span>{{user.age}}</span></p>
 
-  <!-- <img [src]="jack.image" [alt]="jack.alt" [width]="jack.width" [height]="jack.height"> -->
-
-  <button class="btn" [disabled]="disabled">Click</button>
-  <p [class]="p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias provident iusto nisi voluptatum nam necessitatibus, adipisci autem eveniet eos. Nesciunt minima nemo tempora velit quas magnam quibusdam repellendus impedit nostrum!</p>
-  <p [style]="'color:red'">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur nam ut itaque quibusdam. Perferendis illum rem odit aliquam! Quis cum distinctio quia fugit architecto officiis ducimus doloremque dolorum beatae velit.</p>
-  <p [style]="p1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur nam ut itaque quibusdam. Perferendis illum rem odit aliquam! Quis cum distinctio quia fugit architecto officiis ducimus doloremque dolorum beatae velit.</p>
-
-  <h2 (click)="upperCase()">{{h2}}</h2>
-
-  <button class="btn" (click)="inc()"> + </button> 
-  <button class="btn" (click)="dec()"> - </button> 
-  <output> {{ counter }} </output>
-  
-  <!-- <app-course></app-course>
-  <app-trainer></app-trainer>
-  <app-admin></app-admin> -->
 
 </div>

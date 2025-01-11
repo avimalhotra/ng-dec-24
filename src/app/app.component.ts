@@ -1,41 +1,24 @@
 import { Component } from '@angular/core';
-import { CourseComponent } from "./course/course.component";
-import { TrainerComponent } from './trainer/trainer.component';
-import { AdminComponent } from './admin/admin.component';
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [CourseComponent, TrainerComponent, AdminComponent],
+  imports: [ FormsModule ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  preserveWhitespaces:true
 })
 
 export class AppComponent {
   title = 'Angular';
-  version=19;
-  author={name:"Avinash", company:"Tech Altum"};
-  
-  arr=[1,3,2, 10, 21 ];
-  car={ name:"Swift", power:82, torque:112 };
-  
-  numSrt=function(a:number,b:number){return a-b};
-  reverseString(x:string){return x.split("").reverse().join("");}
-  reverseWords(x:string){return x.split(" ").reverse().join(" ");}
+  // name="";
+  // terms=false;
+  // email="";
+  // age="";
 
+  // updateEmail(e:Event){this.email=(e.target as HTMLInputElement ).value};
 
-  jack={image:"jack.webp", alt:"Jack Efron", width:70, height:70};
-
-  disabled=false;
-  p="para";
-  p1="color:purple";
-
-  h2="lorem ipsum";
-  upperCase(){ this.h2=this.h2.toUpperCase() }
-
-  counter=0;
-  inc(){ this.counter=this.counter+1 }
-  dec(){ this.counter=this.counter-1 }
+  user={name:"", email:"", age:0};
 
 
 }
