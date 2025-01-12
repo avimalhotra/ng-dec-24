@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CarsComponent } from './cars/cars.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [ FormsModule ],
+  imports: [ CarsComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   preserveWhitespaces:true
@@ -11,14 +12,14 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent {
   title = 'Angular';
-  // name="";
-  // terms=false;
-  // email="";
-  // age="";
 
-  // updateEmail(e:Event){this.email=(e.target as HTMLInputElement ).value};
+  car="Swift";
+  bike="Bullet";
 
-  user={name:"", email:"", age:0};
+  counter=0;
 
+  showVal(count:number){
+    this.counter=count;
+  }
 
 }

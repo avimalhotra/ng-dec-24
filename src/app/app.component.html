@@ -1,23 +1,10 @@
 <div class="container">
 
   <h1>{{title}}</h1>
+  <p>Counter : {{counter}}</p>
+  
+  <hr>
 
-  <!-- <label>Name: <input type="text" (input)="name=$any($event.target).value" ></label> 
-  <label>Email: <input type="email" (input)="updateEmail($event)"></label> 
-  <label> <input type="checkbox" (change)="terms=$any($event.target).checked"> : Terms</label> 
-
-  <p>Name : <span>{{name}}</span> </p>
-  <p>Terms : <span>{{terms}}</span> </p>
-  <p>Email :  <span>{{email}}</span></p> -->
-
-
-  <label>Name: <input type="text" [(ngModel)]="user.name" required></label>
-  <label>Email: <input type="email" [(ngModel)]="user.email" required></label>
-  <label>Age: <input type="number" [(ngModel)]="user.age" required min="18" max="25"></label>
-
-  <p>Name : <span>{{user.name}}</span> </p>
-  <p>Email :  <span>{{user.email}}</span></p>
-  <p>Age :  <span>{{user.age}}</span></p>
-
+  <app-cars [carname]="car" [bikname]="bike" (changeValue)="showVal($event)"></app-cars>
 
 </div>
