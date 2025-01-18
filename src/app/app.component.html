@@ -1,10 +1,22 @@
-<div class="container">
+<div class="container-xxl">
 
   <h1>{{title}}</h1>
-  <p>Counter : {{counter}}</p>
+  <label>Age: <input type="number" class="form-control" name="age" value="{{age}}" min="0" max="90" [(ngModel)]="age"></label>
+  <output>{{age}}</output>
+  <hr>
+
+  <img ngSrc="{{img1.src}}" alt="{{img1.alt}}" width="70" height="70" priority>
+
+  <p>Para 1</p>
+  <p [ngClass]="x" class="lead">Para 2</p>
+
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda itaque, ducimus quod natus voluptatem, ratione, quibusdam impedit nesciunt sapiente a quidem recusandae eum praesentium neque ab architecto. Provident, itaque sit excepturi sint ipsam delectus ullam odit odio facere. Architecto rerum quam quaerat alias tenetur! Quis eaque nostrum rerum inventore sapiente molestiae minima aliquam quisquam laborum unde impedit magni fuga harum aperiam obcaecati totam, et quas repellat aliquid quod consequatur debitis error? Odio nemo quos culpa repellat totam. Labore in nesciunt voluptatem dolorum id optio rem, nulla iure cupiditate quod itaque quasi quam veritatis saepe veniam quidem praesentium fuga quibusdam eum!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda itaque, ducimus quod natus voluptatem, ratione, quibusdam impedit nesciunt sapiente a quidem recusandae eum praesentium neque ab architecto. Provident, itaque sit excepturi sint ipsam delectus ullam odit odio facere. Architecto rerum quam quaerat alias tenetur! Quis eaque nostrum rerum inventore sapiente molestiae minima aliquam quisquam laborum unde impedit magni fuga harum aperiam obcaecati totam, et quas repellat aliquid quod consequatur debitis error? Odio nemo quos culpa repellat totam. Labore in nesciunt voluptatem dolorum id optio rem, nulla iure cupiditate quod itaque quasi quam veritatis saepe veniam quidem praesentium fuga quibusdam eum!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda itaque, ducimus quod natus voluptatem, ratione, quibusdam impedit nesciunt sapiente a quidem recusandae eum praesentium neque ab architecto. Provident, itaque sit excepturi sint ipsam delectus ullam odit odio facere. Architecto rerum quam quaerat alias tenetur! Quis eaque nostrum rerum inventore sapiente molestiae minima aliquam quisquam laborum unde impedit magni fuga harum aperiam obcaecati totam, et quas repellat aliquid quod consequatur debitis error? Odio nemo quos culpa repellat totam. Labore in nesciunt voluptatem dolorum id optio rem, nulla iure cupiditate quod itaque quasi quam veritatis saepe veniam quidem praesentium fuga quibusdam eum!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda itaque, ducimus quod natus voluptatem, ratione, quibusdam impedit nesciunt sapiente a quidem recusandae eum praesentium neque ab architecto. Provident, itaque sit excepturi sint ipsam delectus ullam odit odio facere. Architecto rerum quam quaerat alias tenetur! Quis eaque nostrum rerum inventore sapiente molestiae minima aliquam quisquam laborum unde impedit magni fuga harum aperiam obcaecati totam, et quas repellat aliquid quod consequatur debitis error? Odio nemo quos culpa repellat totam. Labore in nesciunt voluptatem dolorum id optio rem, nulla iure cupiditate quod itaque quasi quam veritatis saepe veniam quidem praesentium fuga quibusdam eum!</p>
+
   
   <hr>
 
-  <app-cars [carname]="car" [bikname]="bike" (changeValue)="showVal($event)"></app-cars>
-
+  <app-cars></app-cars>
 </div>
