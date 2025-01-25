@@ -1,93 +1,45 @@
-<div class="container-xxl">
+<div class="container-xxl py-3">
 
   <h1>{{title}}</h1>
 
-  <!-- <p> {{car1}} is {{hybrid}}  </p> -->
-  <!-- <p> {{car2}} is {{awd}}  </p> -->
+  <!-- <p [ngStyle]="{'color':'#a00','text-align':'center'}">Para style</p> -->
+   <!-- <p [ngStyle]="css">Para Css</p> -->
+   <!-- <p [ngClass]="'para'">Para Css</p> -->
 
-    <h2>If Else</h2>
-    <div class="alert alert-warning">
-      <h3>{{swift.name}}</h3>
-      <ol>
-        <li>{{swift.fuel}}</li>
-        @if (swift.hybrid) { <li>Hybrid</li> }
-        @if (swift.awd) {  <li>All Wheel Drive</li>  }
-        @else { <li>Front Wheel Drive</li> }
-      </ol>
-      <!-- <ol>
-        <li>{{swift.fuel}}</li>
-        <li *ngIf="swift.hybrid">Hybrid</li>
-        <li *ngIf="swift.hybrid">Hybrid</li>
-        <li *ngIf="!swift.awd">Front Wheel Drive System</li>
-        <li *ngIf="swift.awd">All Wheel Drive System</li>
-      </ol> -->
-      
-    </div>
-    <div class="alert alert-warning">
-      <h3>{{grandvitara.name}}</h3>
-      <ol>
-        <li>{{grandvitara.fuel}}</li>
-        @if (grandvitara.hybrid) { <li>Hybrid</li> }
-        @if (grandvitara.awd) { <li>All Wheel Drive</li>  }
-        @else { <li>Front Wheel Drive</li> }
-      </ol>
-      <!-- <ol>
-        <li>{{grandvitara.fuel}}</li>
-        <li *ngIf="grandvitara.hybrid">Hybrid</li>
-        <li *ngIf="!grandvitara.awd">Front Wheel Drive System</li>
-        <li *ngIf="grandvitara.awd">All Wheel Drive System</li>
-      </ol> -->
-    </div>
 
-    <div class="alert alert-secondary">
-      <p>Score is {{score}}</p>
-        @if (score>75) { <p>Eligible</p> }
-        @else if (score>60) { <p>Eligible with quota</p> }
-        @else { <p>Not Eligible</p> }
-    </div>
 
+  <!-- <div class="alert alert-primary" [ngSwitch]="month">
+      <p *ngSwitchCase="1">Jan</p>
+      <p *ngSwitchCase="2">Feb</p>
+      <p *ngSwitchCase="3">Mar</p>
+      <p *ngSwitchCase="4">Apr</p>
+      <p *ngSwitchDefault>Invalid Day</p>
+  </div> -->
   
 
-   <!--  <div class="alert alert-secondary">
-      @if (!x) {<p>is null</p>}
-      @else { <p>not null</p>}
-    </div> -->
+  <button class="btn btn-primary" (click)="month=month+1">Next Month</button> <output>{{month}}</output>
 
-    <hr>
-
-    <h2>Loops</h2>
-
-    <h3>Array</h3>
-    <div class="alert alert-secondary">
-        <ul class="list-unstyled">
-            <!-- <li *ngFor="let i of months">{{i}}</li> -->
-            <!-- @for (i of months; track $index) { <li>Month {{$index+1}} is {{i}}</li> } -->
-            @for (i of months; track $index) { <li> {{i}}</li> }
-            @empty { <li>No data found</li> }
-        </ul>
-    </div>
-    <h3>Object</h3>
-    <div class="alert alert-secondary">
-      <ul class="list-unstyled">
-          @for (i of phone | keyvalue; track $index) { <li>{{i.key}} - {{i.value}}</li> }
-       </ul>
-    </div>   
-    <h3>JSON</h3>
-    <div class="alert alert-light">
-        <table class="table table-bordered border-2 border-danger">
-          <thead><tr><th>S No</th><th>Name</th><th>Body Type</th><th>Price</th></tr></thead>
-          <tbody>
-              @for (i of cars; track i.name) { <tr><td>{{$index+1}}</td><td>{{i.name}}</td><td>{{i.type}}</td><td>{{i.price}}</td></tr>}
-          </tbody>
-        </table>
-    </div>
+  @switch (month) {
+    @case (1) { <output>Jan</output> }
+    @case (2) { <output>Feb</output> }
+    @case (3) { <output>Mar</output> }
+    @default { <output>Invalid Day</output>}
+  }
 
 
-    
+  @let name="lorem ipsum";
+  @let age=22;
 
-
+  <p class="my-3">Name is {{name}} and age is {{age}}</p>
   
-  <hr>
+  <div class="alert alert-warning">
+    @let x=3;
+    <p> x is {{x}} </p>
+    <p>Age is {{age}}</p>
+  </div>
+  
+  <p> x is {{x}} </p>
 
-  <app-cars></app-cars>
+  <app-course></app-course>
+
 </div>
