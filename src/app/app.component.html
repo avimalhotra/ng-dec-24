@@ -1,45 +1,28 @@
 <div class="container-xxl py-3">
 
-  <h1>{{title}}</h1>
+  <h1>{{title | uppercase}}</h1>
 
-  <!-- <p [ngStyle]="{'color':'#a00','text-align':'center'}">Para style</p> -->
-   <!-- <p [ngStyle]="css">Para Css</p> -->
-   <!-- <p [ngClass]="'para'">Para Css</p> -->
+  <p>User {{user.name | titlecase}} lives in {{user.city | titlecase}}.</p>
 
+  <p> Hello {{'lorem' | uppercase}}  </p>
 
-
-  <!-- <div class="alert alert-primary" [ngSwitch]="month">
-      <p *ngSwitchCase="1">Jan</p>
-      <p *ngSwitchCase="2">Feb</p>
-      <p *ngSwitchCase="3">Mar</p>
-      <p *ngSwitchCase="4">Apr</p>
-      <p *ngSwitchDefault>Invalid Day</p>
-  </div> -->
-  
-
-  <button class="btn btn-primary" (click)="month=month+1">Next Month</button> <output>{{month}}</output>
-
-  @switch (month) {
-    @case (1) { <output>Jan</output> }
-    @case (2) { <output>Feb</output> }
-    @case (3) { <output>Mar</output> }
-    @default { <output>Invalid Day</output>}
-  }
+  <p>Total bill: {{100 | currency : 'INR'}} </p>
+  <p>{{ 12345 | currency : 'INR' }}</p>
 
 
-  @let name="lorem ipsum";
-  @let age=22;
+  <p> {{ 1737872805552 | date  }} </p>
+  <p> {{ date | date  }} </p>
+  <p> {{ date | date : 'medium' }} </p>
+  <p> {{ date | date : 'hh:mm:ss' }} </p>
 
-  <p class="my-3">Name is {{name}} and age is {{age}}</p>
-  
-  <div class="alert alert-warning">
-    @let x=3;
-    <p> x is {{x}} </p>
-    <p>Age is {{age}}</p>
-  </div>
-  
-  <p> x is {{x}} </p>
+  <p>{{2.415 | number}}</p>
 
-  <app-course></app-course>
+  <p> Score is {{ 0.66 | percent}} </p>
+
+  <p>{{"lorem" | reverse}}</p>
+  <label><input type="text" [(ngModel)]="word"> {{word | reverse}}</label>
+  <!-- <p> {{ word | uppercase }} => {{ word | uppercase | reverse}}</p> -->
+
+  <!-- <app-course></app-course> -->
 
 </div>
