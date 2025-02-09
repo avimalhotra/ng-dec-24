@@ -1,27 +1,86 @@
 <div class="container-xxl py-3">
 
-  <h1>{{title | uppercase}}</h1>
+  <h1>{{title | titlecase}}</h1>
 
-  <p>User {{user.name | titlecase}} lives in {{user.city | titlecase}}.</p>
+  <h2>Template Driven Form</h2>
+  <form novalidate #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+    <div class="row mb-3 align-items-center">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="model.name" #name="ngModel">
+      </div>
+      <div class="col-sm-5">
+        <span class="text-danger" [hidden]="name.valid">Enter Name</span>
+        <span class="text-success" [hidden]="name.invalid">Name Accepted</span>
+      </div>
+    </div>
+    <div class="row mb-3 align-items-center">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-5">
+        <input type="email" pattern="[\w]{1,}@[\w]{1,}\.[\w]{2,}" class="form-control" id="email" name="email" required [(ngModel)]="model.email" #email="ngModel">
+      </div>
+      <div class="col-sm-5">
+        <span class="text-danger" [hidden]="email.valid || email.dirty">Enter Email</span>
+        <span class="text-danger" [hidden]="email.valid || email.pristine">Invalid Email</span>
+        <span class="text-success" [hidden]="email.invalid">Email Accepted</span>
+      </div>
+    </div>
+    <div class="row mb-3 align-items-center">
+      <label for="pass" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-5">
+        <input type="password" minlength="6" class="form-control" id="pass" name="pass" required [(ngModel)]="model.pass" #pass="ngModel">
+      </div>
+      <div class="col-sm-5">
+        <span class="text-danger" [hidden]="pass.valid || pass.dirty">Enter Password</span>
+        <span class="text-danger" [hidden]="pass.valid || pass.pristine">Invalid Password</span>
+        <span class="text-success" [hidden]="pass.invalid">Password Accepted</span>
+      </div>
+    </div>
+    <div class="row mb-3 align-items-center">
+      <label class="col-sm-2 col-form-label">Gender</label>
+      <div class="col-sm-5">
+        <label class="col-form-label"><input type="radio" name="gender" value="female" required [(ngModel)]="model.gender" #gender="ngModel"> Female</label>
+        <label class="col-form-label"><input type="radio" name="gender" value="male" required [(ngModel)]="model.gender" #gender="ngModel"> Male</label>
+      </div>
+      <div class="col-sm-5">
+        <span class="text-danger" [hidden]="gender.valid">Choose Gender</span>
+        <span class="text-success" [hidden]="gender.invalid">Gender Selected</span>
+      </div>
+    </div>
+    <div class="row mb-3 align-items-center">
+      <label for="city" class="col-sm-2 col-form-label">City</label>
+      <div class="col-sm-5">
+        <select id="city" class="form-select" name="city" required [(ngModel)]="model.city" #city="ngModel">
+          <option value="" selected disabled>---Choose City--</option>
+          <option>New Delhi</option>
+          <option>Chennai</option>
+        </select>
+      </div>
+      <div class="col-sm-5">
+        <span class="text-danger" [hidden]="city.valid">Choose City</span>
+        <span class="text-success" [hidden]="city.invalid">Valid City</span>
+      </div>
+    </div>
+    <div class="row mb-3 align-items-center">
+      <label for="terms" class="col-auto form-check-label">Terms and Conditions</label>
+      <div class="col-sm-5">
+        <input type="checkbox" class="form-check-input" name="terms" id="terms" required [(ngModel)]="model.terms" #terms="ngModel">
+      </div>
+      <div class="col-sm-5">
+        <span class="text-danger" [hidden]="terms.valid">Not Agree</span>
+        <span class="text-success" [hidden]="terms.invalid">Agree</span>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-auto">
+        <button type="submit" class="btn btn-primary" [disabled]="loginform.invalid">Submit</button>
+        <button type="reset" (click)="loginform.reset()" class="btn btn-outline-primary">Reset</button>
+      </div>
+    </div>
+    
 
-  <p> Hello {{'lorem' | uppercase}}  </p>
-
-  <p>Total bill: {{100 | currency : 'INR'}} </p>
-  <p>{{ 12345 | currency : 'INR' }}</p>
-
-
-  <p> {{ 1737872805552 | date  }} </p>
-  <p> {{ date | date  }} </p>
-  <p> {{ date | date : 'medium' }} </p>
-  <p> {{ date | date : 'hh:mm:ss' }} </p>
-
-  <p>{{2.415 | number}}</p>
-
-  <p> Score is {{ 0.66 | percent}} </p>
-
-  <p>{{"lorem" | reverse}}</p>
-  <label><input type="text" [(ngModel)]="word"> {{word | reverse}}</label>
-  <!-- <p> {{ word | uppercase }} => {{ word | uppercase | reverse}}</p> -->
+  </form>
 
   <!-- <app-course></app-course> -->
 
