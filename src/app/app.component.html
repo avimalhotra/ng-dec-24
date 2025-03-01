@@ -2,6 +2,7 @@
 
   <h1>{{title | titlecase}}</h1>
 
+  <!-- <section>
   <h2>Template Driven Form</h2>
   <form novalidate #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
     <div class="row mb-3 align-items-center">
@@ -78,9 +79,61 @@
         <button type="reset" (click)="loginform.reset()" class="btn btn-outline-primary">Reset</button>
       </div>
     </div>
-    
 
   </form>
+  </section> -->
+
+  <section>
+    <h2>Reactive Form</h2>
+    <form novalidate class="row align-items-center" [formGroup]="loginform" (ngSubmit)="loginUser()">
+      
+      <div class="col-auto"><label class=" form-label" for="email">Email: </label></div>
+      <div class="col-auto"><input type="email" class="form-control" id="email" name="email" formControlName="email"></div>
+      <div class="col-auto">
+        <i *ngIf="loginform.get('email')?.hasError('required') && loginform.get('email')?.pristine">Enter Email</i>
+        <i *ngIf="loginform.get('email')?.invalid && loginform.get('email')?.dirty">Email Invalid</i>
+        <i *ngIf="loginform.get('email')?.valid && loginform.get('email')?.dirty">Email Valid</i>
+      </div>
+      <!-- <div class="col-auto"><output>{{loginform}}</output></div> -->
+      <div class="w-100 my-3"></div>
+
+      <div class="col-auto"><label for="pass" class="form-label">Password:</label></div>
+      <div class="col-auto"><input class="form-control" type="password" name="pass" formControlName="pass" id="pass"></div>
+      <!-- <div class="col-auto"><output>{{pass.value}}</output></div> -->
+      <div class="col-auto">
+        <i *ngIf="loginform.get('pass')?.hasError('required') && loginform.get('pass')?.pristine">Enter password</i>
+        <i *ngIf="loginform.get('pass')?.invalid && loginform.get('pass')?.dirty">Invalid password</i>
+        <i *ngIf="loginform.get('pass')?.valid && loginform.get('pass')?.dirty">Valid password</i>
+      </div>
+      <div class="w-100 my-3"></div>
+
+      <div class="col-auto"><label for="age" class="form-label">Age:</label></div>
+      <div class="col-auto"><input class="form-control" type="number" name="age" formControlName="age" id="age"></div>
+      <div class="col-auto">
+        <i *ngIf="loginform.get('age')?.hasError('required') && loginform.get('age')?.pristine">Enter Age</i>
+        <i *ngIf="loginform.get('age')?.invalid && loginform.get('age')?.dirty">Invalid age</i>
+        <i *ngIf="loginform.get('age')?.valid && loginform.get('age')?.dirty">Valid age</i>
+      </div>
+      <!-- <div class="col-auto"><output>{{age.value}}</output></div> -->
+      <div class="w-100 my-3"></div>
+      <div class="col-auto">
+          <!-- <p>{{loginform.value | json }}</p> -->
+          <p>{{loginform.status }}</p>
+          <!-- <p>Valid: {{loginform.valid }}, Invalid: {{loginform.invalid }}</p> -->
+          <p></p>
+      </div>
+      <div class="w-100 my-3"></div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+        <button type="button" class="btn btn-outline-primary" (click)="setVal()">setValue</button>
+        <button type="button" class="btn btn-outline-primary" (click)="patchVal()">patchValue</button>
+
+      </div>
+      
+      
+      
+      </form>
+  </section>
 
   <!-- <app-course></app-course> -->
 
